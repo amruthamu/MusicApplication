@@ -41,7 +41,7 @@ public class FoodStorage {
         return this.item;
     }
 
-    public void setItem(int price){
+    public void setItem(int item){
         this.item = item;
     }
 

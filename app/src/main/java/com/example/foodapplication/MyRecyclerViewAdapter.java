@@ -1,6 +1,7 @@
 package com.example.foodapplication;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,22 +10,28 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> implements FoodItems {
+public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
     private List<FoodStorage> foodstorage;
     private LayoutInflater mInflater;
-    int minteger = 0;
-    int sum=0;
+    int total_sum=0;
+    int totalcount=0;
     Context context;
     int[] myImageList;
+    private FoodItems mCallback;
 
 
-    MyRecyclerViewAdapter(Context context, List<FoodStorage> foodStorage) {
+    MyRecyclerViewAdapter(Context context, List<FoodStorage> foodStorage,FoodItems listener) {
         this.mInflater = LayoutInflater.from(context);
         this.foodstorage = foodStorage;
         this.context=context;
+        this.mCallback = listener;
+        this.totalcount=foodStorage.size();
+        this.mCallback.itemclick(String.valueOf(foodStorage.size()));
+
     }
 
 
@@ -42,22 +49,39 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.item_description.setText(foodStorage.getDescription());
         holder.price_text.setText(String.valueOf(foodStorage.getPrice()));
         holder.item_image_iv.setImageResource(myImageList[position]);
-       // sum += holder.price_text.setText(String.valueOf(foodStorage.getPrice()));
+        total_sum = total_sum + foodStorage.getPrice();
+        Log.d("My_Log----------->","foodstorage.size():"+foodstorage.size()+"position:"+position);
+        if(position == foodstorage.size()-1){
+            mCallback.sum(String.valueOf(total_sum));
+        }
+
         holder.increment_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                minteger = minteger + 1;
-                holder.item_count.setText(String.valueOf(minteger));
 
-            }
+                int currentNos = Integer.parseInt(holder.item_count.getText().toString()) ;
+                holder.item_count.setText(String.valueOf(++currentNos));
+                totalcount++;
+                mCallback.itemclick(String.valueOf(totalcount));
+                total_sum = total_sum + foodStorage.getPrice();
+                mCallback.sum(String.valueOf(total_sum));
+                }
+
+
         });
         holder.decrement_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                minteger = minteger - 1;
-                holder.item_count.setText(String.valueOf(minteger));
 
-            }
+                int currentNos = Integer.parseInt(holder.item_count.getText().toString()) ;
+                holder.item_count.setText(String.valueOf(--currentNos));
+                totalcount--;
+                mCallback.itemclick(String.valueOf(totalcount));
+                total_sum = total_sum - foodStorage.getPrice();
+                mCallback.sum(String.valueOf(total_sum));
+                }
+
+
         });
 
 
@@ -68,10 +92,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         return foodstorage.size();
     }
 
-    @Override
-    public void itemclick(int position,int items, int total) {
-
-    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView item_name_tv, item_description, price_text,item_count,increment_btn,decrement_btn;

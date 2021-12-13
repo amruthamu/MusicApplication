@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    void deleteALlEnties(){
+        Log.d("My_Log----------->","my Delete Method");
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_FOODS, null, null);
+        db.close();
+    }
+
     // code to add the new foodstorage
     void addfoodstorage(FoodStorage foodstorage) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -68,6 +76,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
+        //We can retrieve anything from database using an object of the Cursor class. We will call a method of this class called rawQuery and it will return a resultset with the cursor pointing to the table.
         if (cursor.moveToFirst()) {
             do {
                 FoodStorage foodstorage = new FoodStorage();
