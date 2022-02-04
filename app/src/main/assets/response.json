@@ -1,0 +1,94 @@
+{
+  "f_items": [
+    {
+      "name": "Dosa",
+      "desc": "Regular Breakfast",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Port_Blair%2C_Andamans%2C_Indian_Dosa.jpg/640px-Port_Blair%2C_Andamans%2C_Indian_Dosa.jpg",
+      "price": 45
+    },
+    {
+      "name": "Idly",
+      "desc": "Regular Breakfast",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Idly_and_idly_powder.jpg/800px-Idly_and_idly_powder.jpg",
+      "price": 30
+    },
+    {
+      "name": "Vada",
+      "desc": "Regular Breakfast",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Vada_%28food%29.JPG",
+      "price": 10
+    },
+    {
+      "name": "Pizza",
+      "desc": "Regular snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vegetarian_Pizza.jpg/640px-Vegetarian_Pizza.jpg",
+      "price": 45
+    },
+    {
+      "name": "Panipuri",
+      "desc": "Regular Snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Panipuri-MB40.jpg/640px-Panipuri-MB40.jpg",
+      "price": 35
+    },
+    {
+      "name": "Halwa",
+      "desc": "Regular Snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Karachi_Halwa_%28Corn_Flour_Halwa%29.jpg",
+      "price": 55
+    },
+    {
+      "name": "Biriyani",
+      "desc": "Regular Meal",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Biriyani_-01.jpg",
+      "price": 100
+    },
+    {
+      "name": "Rice",
+      "desc": "Regular Meal",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Beef_curry_rice_003.jpg/640px-Beef_curry_rice_003.jpg",
+      "price": 60
+    },
+    {
+      "name": "Chana",
+      "desc": "Regular Snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Pindi_Chana..JPG/640px-Pindi_Chana..JPG",
+      "price": 50
+    },
+    {
+      "name": "Bhelpuri",
+      "desc": "Regular Breakfast",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Indian_cuisine-Chaat-Bhelpuri-03.jpg",
+      "price": 40
+    },
+    {
+      "name": "Masalpuri",
+      "desc": "Regular Snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Bangladeshi_bhelpuri.jpg",
+      "price": 35
+    },
+    {
+      "name": "Mixture",
+      "desc": "Regular Snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mixture_for_herbal_tea_04.jpg/640px-Mixture_for_herbal_tea_04.jpg",
+      "price": 50
+    },
+    {
+      "name": "Chips",
+      "desc": "Regular Snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Plate_of_chips_at_the_Chalet_Cafe%2C_Cowfold%2C_West_Sussex%2C_England.jpg/640px-Plate_of_chips_at_the_Chalet_Cafe%2C_Cowfold%2C_West_Sussex%2C_England.jpg",
+      "price": 60
+    },
+    {
+      "name": "Burger",
+      "desc": "Regular Snack",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Burger_Ayam_Crispy.jpg",
+      "price": 60
+    },
+    {
+      "name": "Sandwitch",
+      "desc": "Regular Breakfast",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Tricolor_Vegitarian_Sandwitch.jpg",
+      "price": 65
+    }
+  ]
+}

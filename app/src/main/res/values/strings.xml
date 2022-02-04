@@ -5,4 +5,11 @@
     <string name="thousand">1000</string>
     <string name="total">Total:</string>
     <string name="dash">.</string>
+    <string name="dish">Farmhouse</string>
+    <string name="description">new hand toasted</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="quantity">1</string>
+    <string name="price">50</string>
+    <string name="delete">delete</string>
 </resources>

@@ -83,6 +83,7 @@
                     android:layout_toEndOf="@id/total_price_tv"
                     android:layout_toRightOf="@id/total_price_tv"
                     android:text="@string/thousand"
+                    android:textStyle="bold"
                     android:textColor="?attr/colorOnPrimary"
 
                     />
@@ -113,6 +114,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:listitem="@layout/food_items_list"
+                android:layout_marginBottom="45dp"
                 />
             <!--        </ScrollView>-->
         </RelativeLayout>

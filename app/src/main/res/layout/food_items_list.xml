@@ -19,7 +19,8 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@string/dash"/>
         <TextView
             android:id="@+id/item_name_tv"
             android:layout_width="wrap_content"
@@ -28,7 +29,7 @@
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/item_image_iv"
             android:textSize="20sp"
-            android:text="Farmhouse"
+            android:text="@string/dish"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_toRightOf="@id/item_image_iv"
@@ -38,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/item_name_tv"
-            android:text="new hand toasted"
+            android:text="@string/description"
             android:textSize="15sp"
             android:layout_marginStart="20dp"
             android:layout_toEndOf="@id/item_image_iv"
@@ -56,8 +57,8 @@
             android:layout_marginStart="40dp"
             android:textColor="@color/black"
             android:layout_below="@id/item_description"
-            android:text="+"
-            android:textSize="15dp"
+            android:text="@string/plus"
+            android:textSize="15sp"
             android:layout_marginLeft="40dp" />
         <TextView
             android:id="@+id/item_count"
@@ -67,12 +68,12 @@
             android:paddingVertical="8dp"
             android:paddingHorizontal="15dp"
             android:layout_marginTop="10dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="@color/black"
             android:layout_toEndOf="@id/increment_btn"
             android:background="@drawable/border_layout"
             android:layout_toRightOf="@id/increment_btn"
-            android:text="1"/>
+            android:text="@string/quantity"/>
         <TextView
             android:id="@+id/decrement_btn"
             android:layout_width="wrap_content"
@@ -81,29 +82,44 @@
             android:paddingVertical="8dp"
             android:paddingHorizontal="15dp"
             android:layout_marginTop="10dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textColor="@color/black"
             android:background="@drawable/border_layout"
             android:layout_toRightOf="@id/item_count"
-            android:text="-"/>
+            android:text="@string/minus"
+            android:layout_toEndOf="@id/item_count" />
         <TextView
             android:id="@+id/price_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="45dp"
-            android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="350dp"
             android:layout_marginEnd="30dp"
             android:textColor="@color/black"
-            android:text="50"
-            android:layout_marginRight="20dp" />
+            android:text="@string/price"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="350dp" />
+        <TextView
+            android:id="@+id/deletebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border_layout"
+            android:layout_below="@id/price_text"
+            android:layout_marginStart="280dp"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/delete"
+            android:layout_marginLeft="280dp" />
         <View
             android:layout_width="wrap_content"
             android:layout_height="2dp"
             android:background="#E91E63"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="14dp"
-            android:layout_below="@id/decrement_btn"
+            android:layout_marginTop="0dp"
+            android:layout_below="@id/deletebtn"
             android:layout_marginLeft="20dp"/>
 
 

@@ -10,15 +10,17 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseHandler extends SQLiteOpenHelper {
+public class FoodItemsDatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "foodStorage";
     private static final String TABLE_FOODS = "foodItems";
-    private static final String FOOD_NAME = "foodname";
+    private static final String FOOD_NAME = "foodName";
     private static final String FOOD_DESCRIPT = "description";
+    private static final String FOOD_URL="url";
     private static final String FOOD_PRICE = "price";
 
-    public DatabaseHandler(Context context) {
+
+    public FoodItemsDatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //3rd argument to be passed is CursorFactory instance
     }
@@ -29,7 +31,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_FOOD_TABLE = "CREATE TABLE " + TABLE_FOODS + "("
                 + FOOD_NAME + " TEXT," + FOOD_DESCRIPT + " TEXT,"
-                + FOOD_PRICE + " INTEGER" + ")";
+                +FOOD_URL+"TEXT," +FOOD_PRICE + " INTEGER" + ")";
         db.execSQL(CREATE_FOOD_TABLE);
     }
 
@@ -43,21 +45,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    void deleteALlEnties(){
-        Log.d("My_Log----------->","my Delete Method");
+    void deleteAllEnties(){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_FOODS, null, null);
         db.close();
     }
 
     // code to add the new foodstorage
-    void addfoodstorage(FoodStorage foodstorage) {
+    void addfoodstorage(FItem foodstorage) {
         SQLiteDatabase db = this.getWritableDatabase();
-
+//content valuesclass that matches a value to a String key. It contains multiple overloaded put methods that enforce type safety
         ContentValues values = new ContentValues();
-        values.put(FOOD_NAME,foodstorage.getFoodname());
-        values.put(FOOD_DESCRIPT, foodstorage.getDescription()); // foodstorage Name
-        values.put(FOOD_PRICE, foodstorage.getPrice()); // foodstorage price
+        values.put(FOOD_NAME,foodstorage.getName());
+        values.put(FOOD_DESCRIPT, foodstorage.getDesc());
+        values.put(FOOD_URL,foodstorage.getUrl());
+        values.put(FOOD_PRICE, foodstorage.getPrice().toString());
+
 
         // Inserting Row
         db.insert(TABLE_FOODS, null, values);
@@ -67,8 +70,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 
     // code to get all foodstorages in a list view
-    public List<FoodStorage> getAllfoodstorages() {
-        List<FoodStorage> foodstorageList = new ArrayList<FoodStorage>();
+    public List<FItem> getAllfoodstorages() {
+        List<FItem> foodstorageList = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_FOODS;
 
@@ -79,10 +82,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         //We can retrieve anything from database using an object of the Cursor class. We will call a method of this class called rawQuery and it will return a resultset with the cursor pointing to the table.
         if (cursor.moveToFirst()) {
             do {
-                FoodStorage foodstorage = new FoodStorage();
-                foodstorage.setFoodname(cursor.getString(0));
-                foodstorage.setDescription(cursor.getString(1));
-                foodstorage.setPrice(Integer.parseInt(cursor.getString(2)));
+                FItem foodstorage = new FItem();
+                foodstorage.setName(cursor.getString(0));
+                foodstorage.setDesc(cursor.getString(1));
+                foodstorage.setUrl(cursor.getString(2));
+                foodstorage.setPrice(cursor.getInt(3));
                 foodstorageList.add(foodstorage);
             } while (cursor.moveToNext());
         }

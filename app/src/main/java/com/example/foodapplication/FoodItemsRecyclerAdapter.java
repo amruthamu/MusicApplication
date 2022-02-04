@@ -10,27 +10,28 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
-public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
+public class FoodItemsRecyclerAdapter extends RecyclerView.Adapter<FoodItemsRecyclerAdapter.ViewHolder> {
 
-    private List<FoodStorage> foodstorage;
+    private List<FItem> foodstorage;
     private LayoutInflater mInflater;
-    int total_sum=0;
-    int totalcount=0;
+    int total_price=0;
+    int total_items=0;
     Context context;
-    int[] myImageList;
     private FoodItems mCallback;
 
 
-    MyRecyclerViewAdapter(Context context, List<FoodStorage> foodStorage,FoodItems listener) {
+    FoodItemsRecyclerAdapter(Context context, List<FItem> foodStorage, FoodItems listener, int sum) {
         this.mInflater = LayoutInflater.from(context);
         this.foodstorage = foodStorage;
         this.context=context;
         this.mCallback = listener;
-        this.totalcount=foodStorage.size();
-        this.mCallback.itemclick(String.valueOf(foodStorage.size()));
+       this.total_price=sum;
+        this.total_items=foodStorage.size();
 
     }
 
@@ -38,33 +39,26 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.food_items_list, parent, false);
-        myImageList = new int[]{R.drawable.dosapicture, R.drawable.idlypicture,R.drawable.vadapicture,R.drawable.pizzapicture,R.drawable.panipuripicture,R.drawable.halwapicture,R.drawable.biriyanipicture,R.drawable.ricepicture,R.drawable.chanapicture,R.drawable.bhelpuripicture,R.drawable.masalapuripicture,R.drawable.mixtureimage,R.drawable.chipspicture,R.drawable.burgerpicture,R.drawable.sandwitch};
-
         return new ViewHolder(view);
     }
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final FoodStorage foodStorage = foodstorage.get(position);
-       holder.item_name_tv.setText(foodStorage.getFoodname());
-        holder.item_description.setText(foodStorage.getDescription());
+        final FItem foodStorage = foodstorage.get(position);
+       holder.item_name_tv.setText(foodStorage.getName());
+        holder.item_description.setText(foodStorage.getDesc());
         holder.price_text.setText(String.valueOf(foodStorage.getPrice()));
-        holder.item_image_iv.setImageResource(myImageList[position]);
-        total_sum = total_sum + foodStorage.getPrice();
+        Glide.with(context).load(foodStorage.getUrl()).into(holder.item_image_iv);
         Log.d("My_Log----------->","foodstorage.size():"+foodstorage.size()+"position:"+position);
-        if(position == foodstorage.size()-1){
-            mCallback.sum(String.valueOf(total_sum));
-        }
-
         holder.increment_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 int currentNos = Integer.parseInt(holder.item_count.getText().toString()) ;
-                holder.item_count.setText(String.valueOf(++currentNos));
-                totalcount++;
-                mCallback.itemclick(String.valueOf(totalcount));
-                total_sum = total_sum + foodStorage.getPrice();
-                mCallback.sum(String.valueOf(total_sum));
+                    holder.item_count.setText(String.valueOf(++currentNos));
+                    total_items++;
+                mCallback.itemclick(String.valueOf(total_items));
+                total_price = total_price + foodStorage.getPrice();
+                mCallback.sum(String.valueOf(total_price));
                 }
 
 
@@ -74,14 +68,28 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             public void onClick(View view) {
 
                 int currentNos = Integer.parseInt(holder.item_count.getText().toString()) ;
-                holder.item_count.setText(String.valueOf(--currentNos));
-                totalcount--;
-                mCallback.itemclick(String.valueOf(totalcount));
-                total_sum = total_sum - foodStorage.getPrice();
-                mCallback.sum(String.valueOf(total_sum));
+                    holder.item_count.setText(String.valueOf(--currentNos));
+                    total_items--;
+                mCallback.itemclick(String.valueOf(total_items));
+                total_price = total_price - foodStorage.getPrice();
+                mCallback.sum(String.valueOf(total_price));
                 }
 
 
+        });
+        holder.deletebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int newPosition = holder.getAdapterPosition();
+                total_price = total_price - (foodStorage.getPrice() * Integer.parseInt(holder.item_count.getText().toString()));
+                mCallback.sum(String.valueOf(total_price));
+                foodstorage.remove(newPosition);
+                total_items = total_items -  Integer.parseInt(holder.item_count.getText().toString());
+                mCallback.itemclick(String.valueOf(total_items));
+                notifyItemRemoved(newPosition);
+                notifyItemRangeChanged(newPosition, foodstorage.size());
+
+            }
         });
 
 
@@ -93,8 +101,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     }
 
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView item_name_tv, item_description, price_text,item_count,increment_btn,decrement_btn;
+        TextView item_name_tv, item_description, price_text,item_count,increment_btn,decrement_btn,deletebtn;
         ImageView item_image_iv;
 
         ViewHolder(View itemView) {
@@ -106,6 +115,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             increment_btn=itemView.findViewById(R.id.increment_btn);
             decrement_btn=itemView.findViewById(R.id.decrement_btn);
             item_image_iv=itemView.findViewById(R.id.item_image_iv);
+            deletebtn=itemView.findViewById(R.id.deletebtn);
         }
 
     }
