@@ -10,17 +10,17 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodItemsDatabaseHandler extends SQLiteOpenHelper {
+public class MusicItemsDatabaseHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "foodStorage";
-    private static final String TABLE_FOODS = "foodItems";
-    private static final String FOOD_NAME = "foodName";
-    private static final String FOOD_DESCRIPT = "description";
-    private static final String FOOD_URL="url";
-    private static final String FOOD_PRICE = "price";
+    private static final String DATABASE_NAME = "ItemStorage";
+    private static final String TABLE_MUSICS = "MusicItems";
+    private static final String MUSIC_NAME = "ItemName";
+    private static final String MUSIC_DESCRIPT = "description";
+    private static final String MUSIC_URL="url";
+    private static final String MUSIC_PRICE = "price";
 
 
-    public FoodItemsDatabaseHandler(Context context) {
+    public MusicItemsDatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         //3rd argument to be passed is CursorFactory instance
     }
@@ -29,17 +29,17 @@ public class FoodItemsDatabaseHandler extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_FOOD_TABLE = "CREATE TABLE " + TABLE_FOODS + "("
-                + FOOD_NAME + " TEXT," + FOOD_DESCRIPT + " TEXT,"
-                +FOOD_URL+"TEXT," +FOOD_PRICE + " INTEGER" + ")";
-        db.execSQL(CREATE_FOOD_TABLE);
+        String CREATE_MUSIC_TABLE = "CREATE TABLE " + TABLE_MUSICS + "("
+                + MUSIC_NAME + " TEXT," + MUSIC_DESCRIPT + " TEXT,"
+                +MUSIC_URL+"TEXT," +MUSIC_PRICE + " INTEGER" + ")";
+        db.execSQL(CREATE_MUSIC_TABLE);
     }
 
     // Upgrading database
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FOODS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MUSICS);
 
         // Create tables again
         onCreate(db);
@@ -47,7 +47,7 @@ public class FoodItemsDatabaseHandler extends SQLiteOpenHelper {
 
     void deleteAllEnties(){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_FOODS, null, null);
+        db.delete(TABLE_MUSICS, null, null);
         db.close();
     }
 
@@ -56,14 +56,14 @@ public class FoodItemsDatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 //content valuesclass that matches a value to a String key. It contains multiple overloaded put methods that enforce type safety
         ContentValues values = new ContentValues();
-        values.put(FOOD_NAME,foodstorage.getName());
-        values.put(FOOD_DESCRIPT, foodstorage.getDesc());
-        values.put(FOOD_URL,foodstorage.getUrl());
-        values.put(FOOD_PRICE, foodstorage.getPrice().toString());
+        values.put(MUSIC_NAME,foodstorage.getName());
+        values.put(MUSIC_DESCRIPT, foodstorage.getDesc());
+        values.put(MUSIC_URL,foodstorage.getUrl());
+        values.put(MUSIC_PRICE, foodstorage.getPrice().toString());
 
 
         // Inserting Row
-        db.insert(TABLE_FOODS, null, values);
+        db.insert(TABLE_MUSICS, null, values);
         //2nd argument is String containing nullColumnHack
         db.close(); // Closing database connection
     }
@@ -73,7 +73,7 @@ public class FoodItemsDatabaseHandler extends SQLiteOpenHelper {
     public List<FItem> getAllfoodstorages() {
         List<FItem> foodstorageList = new ArrayList<>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_FOODS;
+        String selectQuery = "SELECT  * FROM " + TABLE_MUSICS;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);

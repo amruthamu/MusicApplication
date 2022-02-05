@@ -1,94 +1,70 @@
 {
   "f_items": [
     {
-      "name": "Dosa",
-      "desc": "Regular Breakfast",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Port_Blair%2C_Andamans%2C_Indian_Dosa.jpg/640px-Port_Blair%2C_Andamans%2C_Indian_Dosa.jpg",
-      "price": 45
+      "name": "Jazz",
+      "desc": " Guitar New",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Kay_12_String_guitar.jpg/640px-Kay_12_String_guitar.jpg",
+      "price": 450
     },
     {
-      "name": "Idly",
-      "desc": "Regular Breakfast",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Idly_and_idly_powder.jpg/800px-Idly_and_idly_powder.jpg",
-      "price": 30
+      "name": "Drums",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Drumhead_Coated_on_Bass_Drum.png",
+      "price": 200
     },
     {
-      "name": "Vada",
-      "desc": "Regular Breakfast",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Vada_%28food%29.JPG",
-      "price": 10
-    },
-    {
-      "name": "Pizza",
-      "desc": "Regular snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vegetarian_Pizza.jpg/640px-Vegetarian_Pizza.jpg",
-      "price": 45
-    },
-    {
-      "name": "Panipuri",
-      "desc": "Regular Snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Panipuri-MB40.jpg/640px-Panipuri-MB40.jpg",
-      "price": 35
-    },
-    {
-      "name": "Halwa",
-      "desc": "Regular Snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Karachi_Halwa_%28Corn_Flour_Halwa%29.jpg",
-      "price": 55
-    },
-    {
-      "name": "Biriyani",
-      "desc": "Regular Meal",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Biriyani_-01.jpg",
+      "name": "Rock and Roll",
+      "desc": "Guitar new",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Aria_acoustic_guitar_type_aw_75_rsb_complete.jpg/640px-Aria_acoustic_guitar_type_aw_75_rsb_complete.jpg",
       "price": 100
     },
     {
-      "name": "Rice",
-      "desc": "Regular Meal",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Beef_curry_rice_003.jpg/640px-Beef_curry_rice_003.jpg",
-      "price": 60
+      "name": "Fluit",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Houten_fluit%2C_objectnr_18197.JPG/640px-Houten_fluit%2C_objectnr_18197.JPG",
+      "price": 150
     },
     {
-      "name": "Chana",
-      "desc": "Regular Snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Pindi_Chana..JPG/640px-Pindi_Chana..JPG",
-      "price": 50
-    },
-    {
-      "name": "Bhelpuri",
-      "desc": "Regular Breakfast",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Indian_cuisine-Chaat-Bhelpuri-03.jpg",
-      "price": 40
-    },
-    {
-      "name": "Masalpuri",
-      "desc": "Regular Snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Bangladeshi_bhelpuri.jpg",
+      "name": "Keyboard",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Kurzweil_Synthesizer_and_MIDI_Keyboard_Controller_PC3K6.jpg",
       "price": 35
     },
     {
-      "name": "Mixture",
-      "desc": "Regular Snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Mixture_for_herbal_tea_04.jpg/640px-Mixture_for_herbal_tea_04.jpg",
+      "name": "violin",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Violin%2C_Nikolai.jpg",
+      "price": 55
+    },
+    {
+      "name": "Veena",
+      "desc": "Regular Music Item",
+      "url": "https://commons.wikimedia.org/wiki/File:Guru_Pt_Ramarao_Patra_Odissi_Bina_(Veena).jpg",
+      "price": 100
+    },
+    {
+      "name": "Sitar",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Sitar2.jpg/640px-Sitar2.jpg",
+      "price": 60
+    },
+    {
+      "name": "Chenda",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Chenda.JPG/640px-Chenda.JPG",
       "price": 50
     },
     {
-      "name": "Chips",
-      "desc": "Regular Snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Plate_of_chips_at_the_Chalet_Cafe%2C_Cowfold%2C_West_Sussex%2C_England.jpg/640px-Plate_of_chips_at_the_Chalet_Cafe%2C_Cowfold%2C_West_Sussex%2C_England.jpg",
-      "price": 60
+      "name": "Idakka",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Edakka_-_Idakka_-_Edaykka.JPG/640px-Edakka_-_Idakka_-_Edaykka.JPG",
+      "price": 40
     },
     {
-      "name": "Burger",
-      "desc": "Regular Snack",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Burger_Ayam_Crispy.jpg",
-      "price": 60
-    },
-    {
-      "name": "Sandwitch",
-      "desc": "Regular Breakfast",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Tricolor_Vegitarian_Sandwitch.jpg",
-      "price": 65
+      "name": "uclela",
+      "desc": "Regular Music Item",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Kay_12_String_guitar.jpg/640px-Kay_12_String_guitar.jpg",
+      "price": 35
     }
   ]
 }

@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class FoodItemsNew {
+public class MusicItemsNew {
 
     @SerializedName("f_items")
     @Expose
@@ -19,7 +19,7 @@ public class FoodItemsNew {
         this.fItems = fItems;
     }
 
-    public FoodItemsNew withfItems(List<FItem> fItems) {
+    public MusicItemsNew withfItems(List<FItem> fItems) {
         this.fItems = fItems;
         return this;
     }

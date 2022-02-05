@@ -5,11 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_person_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:fabSize="normal"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/plus_drawable"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/main_toolar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:visibility="visible"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -39,6 +50,25 @@
                     android:contentDescription="@string/dash"
                     tools:ignore="VectorDrawableCompat"
                     android:layout_marginLeft="10dp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/item_image_iv"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toEndOf="@id/food_app_bar_back_iv"
+                    android:contentDescription="@string/dash"/>
+                <TextView
+                    android:id="@+id/uploadbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_layout"
+                    android:layout_marginTop="25dp"
+                    android:text="upload"
+                    android:textColor="@color/black"
+                    android:layout_toEndOf="@id/item_image_iv"/>
+
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/food_app_item_count"
@@ -47,6 +77,7 @@
                     android:layout_marginStart="2dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="15dp"
+                    android:visibility="gone"
                     android:layout_toEndOf="@id/food_app_bar_back_iv"
                     android:layout_toRightOf="@id/food_app_bar_back_iv"
                     android:text="@string/six"
@@ -59,6 +90,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="18dp"
+                    android:visibility="gone"
                     android:layout_toEndOf="@id/food_app_item_count"
                     android:layout_toRightOf="@id/food_app_item_count"
                     android:text="@string/items"
@@ -74,6 +106,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/total"
                     android:textColor="?attr/colorOnPrimary" />
+
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/price_value_tv"
